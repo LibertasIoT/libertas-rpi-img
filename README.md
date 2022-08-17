@@ -8,9 +8,7 @@ Libertas Hub is an IoT central controller with an IoT App design, Thing-App.
 
 Libertas is designed to reach **billions** of users and cover **trillions** of CPU/MCU chips. 
 
-Our goal is to make everything intelligent, not just intelligent in itself but also intelligently interacting with any other things.
-
-Our Thing-App is "write once, run everywhere" across all different CPUs/MCUs from inside tiny sensors to the big Cloud. In other words, Thing-App **interconnects** different things and defines **interaction** among them, while those things could be otherwise seemingly unrelated without Thing-App.
+Our goal is to make **everything intelligent**, not just intelligent in itself but also intelligently interacting with any other things. That's why Thing-App is designed to be "write once, run everywhere" across all different CPUs/MCUs from inside tiny sensors to the big Cloud. In other words, Thing-App **interconnects** different things and defines **interaction** among them, while those things could be otherwise seemingly unrelated without Thing-App.
 
 Libertas Thing-App is right at your fingertips. An end-user chooses a Thing-App, throws things into the Thing-App, then starts the Thing-App. Libertas will figure out how to interconnect related "things" around the Thing-App, and find the best place (e.g., a little sensor, Hub or Cloud) for Thing-App to run securely and privately.
 
@@ -94,15 +92,19 @@ Follow this instruction to set up the Hub using Libertas Android App.
 
 Note that Raspberry Pi Hub will not be able to use our bridge service. Instead, you will need to set up the dynamic DNS and NAT to access the Hub from the Internet through our Libertas Smartphone App.
 
+## Access Libertas IoT Studio IDE
+
+[Every Libertas IoT Hub comes with Libertas-IoT Studio, a complete development IDE that is free for everybody.](https://librehome.com/doc/developers_doc/development_tool/)
+
 ## What Can I do With the Libertas Hub?
 
 The Libertas Hub currently supports Hornet Mesh wireless technology. In addition, it works with [9 Libertas smart home devices](https://librehome.com) now.
 
 What about Google's Thread and Matter technology? Well, since Matter is IP based. The Hub can support it right now. Nevertheless, for now, in Libertas, Matter is just a Thing-App!
 
-Native matter support is part of a bigger Libertas plan. We want every device to have a Thing-App virtual machine and to interact with other devices independently, securely, and privately. Moreover, the underlying wireless protocol shall be transparent. Which is Hornet OS for MCU with Hornet Cluster Library that we are working to open source now.
+Libertas has a bigger plan. We want every device to have a Thing-App virtual machine and to interact with other devices independently, securely, and privately. Moreover, we are working to open source Hornet cluster library for MCUs with Thing-App engine and underlying wireless protocols hidden to firmware developers.
 
-[As for Hornet, why another mesh network technology? Can Hornet even survive? Here are my thoughts.](https://librehome.com/doc/hornet_doc/index.html#why-another-mesh-protocol)
+[As for Hornet, why another mesh network technology? Well, if Thread really works then I am glad someone else is taking responsibility. But I do have concerns about the stability and not being truly open.](https://librehome.com/doc/hornet_doc/index.html#why-another-mesh-protocol)
 
 Libertas is many years ahead. We laid the foundation of both interconnectivity and interactivity. It is more about the IoT intelligence layer than simple connectivity. Plus, when they say "connectivity," it does not necessarily mean **inter**connectivity!
 
