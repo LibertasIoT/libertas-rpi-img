@@ -4,17 +4,13 @@ This repository contains the Libertas Hub release for Raspberry Pi 2, Raspberry 
 
 ## What is Libertas Hub?
 
-Libertas Hub is an IoT central controller with an IoT App design, Thing-App.
+Libertas Hub is an IoT central controller with an IoT App design, **Thing-App**.
 
-Libertas is designed to reach **billions** of users and cover **trillions** of CPU/MCU chips. 
+Libertas Hub connects to other IoT devices and enables end-users to run Thing-App to interact with those devices.
 
-Our goal is to make **everything intelligent**, not just intelligent in itself but also intelligently interacting with any other things. That's why Thing-App is designed to be "write once, run everywhere" across all different CPUs/MCUs from inside tiny sensors to the big Cloud. In other words, Thing-App **interconnects** different things and defines **interaction** among them, while those things could be otherwise seemingly unrelated without Thing-App.
+Libertas Thing-App is "write once, run everywhere" written in TypeScript. Our goal is to enable trillions of devices to run Thing-App directly. Libertas Hub is the first and most important step.
 
-Libertas Thing-App is right at your fingertips. An end-user chooses a Thing-App, throws things into the Thing-App, then starts the Thing-App. Libertas will figure out how to interconnect related "things" around the Thing-App, and find the best place (e.g., a little sensor, Hub or Cloud) for Thing-App to run securely and privately.
-
-After ten years of research & development, Libertas Hub now reached production-ready quality. We will [open source the complete code for MCUs](https://librehome.com/doc/hornet_doc/) soon, although it may take a little more time. We cannot wait to release the Hub for curious people to try out.
-
-With its simple yet disruptive design, I am confident Libertas will lead in the following decades.
+Libertas is designed to reach **billions** of users and cover **trillions** of CPU/MCU chips. With its simple yet disruptive design, We are confident Libertas will lead in the following decades.
 
 ## Prepare the hardware.
 
@@ -52,7 +48,13 @@ First, click the "Add file" button in the upper left part of the window. Choose 
 
 **```nrf52840-transceiver.img.hex```**
 
-The plug dongle into the USB port of the machine. Wait for a few seconds. There should be a "USB plug-in sound" on the Windows platform. Then choose the Dongle from the "SELECT DEVICE" button on the uppermost left side.
+Then plug dongle into the USB port of the machine. Wait for a few seconds. There should be a "USB plug-in sound" on the Windows platform. 
+
+Press the "horizontal button" on the dongle, as shown in the picture below. The dongle shall be in programming mode.
+
+<img src="images/nrf52840_dongle_prog.png" />
+
+Then choose the Dongle from the "SELECT DEVICE" button on the uppermost left side.
 
 The correct device shall be an "Open DFU bootloader."
 
@@ -102,9 +104,15 @@ The Libertas Hub currently supports Hornet Mesh wireless technology. In addition
 
 What about Google's Thread and Matter technology? Well, since Matter is IP based. The Hub can support it right now. Nevertheless, for now, in Libertas, Matter is just a Thing-App!
 
-Libertas has a bigger plan. We want every device to have a Thing-App virtual machine and to interact with other devices independently, securely, and privately. Moreover, we are working to open source Hornet cluster library for MCUs with Thing-App engine and underlying wireless protocols hidden to firmware developers.
+Libertas has a bigger plan. We want every device to have a Thing-App virtual machine and to interact with other devices independently, securely, and privately. 
 
-[As for Hornet, why another mesh network technology? Well, if Thread really works then I am glad someone else is taking responsibility. But I do have concerns about the stability and not being truly open.](https://librehome.com/doc/hornet_doc/index.html#why-another-mesh-protocol)
+Moreover, we are working to open source complete code for different MCUs, the Hornet Cluster Library.
+
+* Hornet Cluster Library will have a Thing-App engine (a Lua VM) built in.
+* Hornet Cluster Library will hide the underlying details about the wireless stack (Thread/Matter or Hornet, etc.)
+* Hornet Cluster Library will significantly simplify the development of device/sensor firmware. It will usually take a few dozen lines of code for a device.
+
+[As for Hornet, why another mesh network technology? If Thread works, then we are glad someone else is taking responsibility. However, we are concerned about the stability and not being truly open about the whole Thread/Matter thing.](https://librehome.com/doc/hornet_doc/index.html#why-another-mesh-protocol)
 
 Libertas is many years ahead. We laid the foundation of both interconnectivity and interactivity. It is more about the IoT intelligence layer than simple connectivity. Plus, when they say "connectivity," it does not necessarily mean **inter**connectivity!
 
