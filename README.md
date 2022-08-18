@@ -4,7 +4,7 @@ This repository contains the Libertas Hub release for Raspberry Pi 2, Raspberry 
 
 ## What is Libertas Hub?
 
-Libertas Hub is an IoT central controller with an IoT App design, **Thing-App**.
+Libertas Hub is an **IoT** (Internet of Things) central controller with an IoT App design, **Thing-App**.
 
 Libertas Hub connects to other IoT devices and enables end-users to run Thing-App to interact with those devices.
 
@@ -26,9 +26,9 @@ You will need:
 
 Get the zip file for your Raspberry Pi model from the [latest release (https://github.com/LibertasIoT/libertas-rpi-img/releases)](https://github.com/LibertasIoT/libertas-rpi-img/releases) and extract the zip file.
 
-## Prepare the nRF52840 Dongle
+## Prepare the nRF52840 dongle
 
-The nRF52840 Dongle is required as a radio transceiver. Use the nRF tool below to program Hornet transceiver firmware into the Dongle.
+The nRF52840 Dongle is required as a radio transceiver. Use the nRF tool below to program Hornet transceiver firmware into the dongle.
 
 ### Download nRF Connect Desktop
 
@@ -44,25 +44,25 @@ Install the software. Then launch the software. Note that we only need the "prog
 
 #### Use the NRF programmer
 
-First, click the "Add file" button in the upper left part of the window. Choose the .img file that comes with the zip file. The file name should be:
+First, click the "Add file" button in the upper left part of the window. Next, choose the .img file that comes with the zip file. The file name should be:
 
 **```nrf52840-transceiver.img.hex```**
 
-Then plug dongle into the USB port of the machine. Wait for a few seconds. There should be a "USB plug-in sound" on the Windows platform. 
+Then plug the dongle into the USB port of the machine. Wait for a few seconds. There should be a "USB plug-in sound" on the Windows platform. 
 
 Press the "horizontal button" on the dongle, as shown in the picture below. The dongle shall be in programming mode.
 
 <img src="images/nrf52840_dongle_prog.png" />
 
-Then choose the Dongle from the "SELECT DEVICE" button on the uppermost left side.
+Then choose the dongle from the "SELECT DEVICE" button on the uppermost left side.
 
 The correct device shall be an "Open DFU bootloader."
 
 As the last step, click the "write" button on the left, and wait for the writing progress to finish.
 
-Unplug the Dongle and plug it into a USB port of the Raspberry Pi. It is OK to use a USB 1.1 or 2.0 port.
+Unplug the dongle and plug it into a USB port of the Raspberry Pi. It is OK to use a USB 1.1 or 2.0 port.
 
-There is a button on the Dongle. Please ensure you can still access the button while the Dongle is plugged into the Raspberry Pi. During Hub admin processes, you may be asked to press the button to prove that you have physical access to the Hub.
+There is a button on the dongle. Please ensure you can still access the button while the dongle is plugged into the Raspberry Pi. During Hub admin processes, you may be asked to press the button to prove that you have physical access to the Hub.
 
 <img src="images/nrfProgrammer.png" width="480" />
 
@@ -108,8 +108,8 @@ Libertas has a bigger plan. We want every device to have a Thing-App virtual mac
 
 Moreover, we are working to open source complete code for different MCUs, the Hornet Cluster Library.
 
-* Hornet Cluster Library will have a Thing-App engine (a Lua VM) built in.
-* Hornet Cluster Library will hide the underlying details about the wireless stack (Thread/Matter or Hornet, etc.)
+* Hornet Cluster Library will have a built-in Thing-App engine (a Lua VM).
+* Hornet Cluster Library will hide the underlying details about the wireless stack (Thread/Matter, Hornet, or other protocols)
 * Hornet Cluster Library will significantly simplify the development of device/sensor firmware. It will usually take a few dozen lines of code for a device.
 
 [As for Hornet, why another mesh network technology? If Thread works, then we are glad someone else is taking responsibility. However, we are concerned about the stability and not being truly open about the whole Thread/Matter thing.](https://librehome.com/doc/hornet_doc/index.html#why-another-mesh-protocol)
@@ -158,7 +158,7 @@ Another smart home example one can look at is the Denon/Marantz A/V receiver dri
 
 End users can control their receivers using our standard UI with our smartphone App. A few clicks can bind the controls to real buttons such as Libertas remote control. Furthermore, those virtual devices can be controlled with other Apps just like real devices.
 
-It works much better than the official App on your smartphone! [Here is the source code](https://github.com/librehome/librehome/blob/main/SmartonLabs/LibertasDenonAVR.ts) if you don't want to try Hub for now.
+It works much better than the official App on smartphones! [Here is the source code](https://github.com/librehome/librehome/blob/main/SmartonLabs/LibertasDenonAVR.ts) if you do not want to try Hub for now.
 
 ![Virtual Device](images/virtual_device.png)
 
