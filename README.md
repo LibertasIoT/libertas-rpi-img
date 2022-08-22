@@ -82,11 +82,23 @@ Press "OK" on each dialog to proceed.
 
 <img src="images/rufus.warn1.png" width="240" /> <img src="images/rufus.warn2.png" width="240" />
 
+Once Rufus is done writing the micro SD card. Remove the card from the PC and plug it into your Raspberry Pi. 
+
+Make sure the nRF52840 Dongle and USB drive are also plugged in. Then power up your Pi.
+
+## Smartphone App
+
+iOS App is always 10% behind and it is not released yet.
+
+Follow the linkes below to download Android App.
+
+<a href="https://play.google.com/store/apps/details?id=com.smartonlabs.qwha"><img src="images/badge_new.png" width="135" /></a>
+
+<a href="amzn://apps/android?asin=B085XQBZN1"><img src="images/amazon-appstore-badge-english-black.png" width="135" /></a>
+
+<a href="/app-release.apk"><img src="images/apk_badge.png" width="135" /></a>
+
 ## Setup the Hub
-
-Once Rufus is done writing the micro SD card. Remove the card from the PC and plug it into your Raspberry Pi.
-
-Make sure the nRF52840 Dongle and USB drive are also plugged in. Then power on the Raspberry Pi.
 
 Follow this instruction to set up the Hub using Libertas Android App.
 
