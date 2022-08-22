@@ -96,7 +96,7 @@ Follow the linkes below to download Android App.
 
 <a href="amzn://apps/android?asin=B085XQBZN1"><img src="images/amazon-appstore-badge-english-black.png" width="135" /></a>
 
-<a href="/app-release.apk"><img src="images/apk_badge.png" width="135" /></a>
+<a href="https://librehome.com/app-release.apk"><img src="images/apk_badge.png" width="135" /></a>
 
 ## Setup the Hub
 
