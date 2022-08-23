@@ -110,6 +110,8 @@ Note that Raspberry Pi Hub will not be able to use our bridge service. Instead, 
 
 [Every Libertas IoT Hub comes with Libertas-IoT Studio, a complete development IDE that is free for everybody.](https://librehome.com/doc/developers_doc/development_tool/)
 
+![Libertas Studio](images/libertas_studio.png)
+
 ## What Can I do With the Libertas Hub?
 
 The Libertas Hub currently supports Hornet Mesh wireless technology. In addition, it works with [9 Libertas smart home devices](https://librehome.com) now.
@@ -126,7 +128,13 @@ Moreover, we are working to open source complete code for different MCUs, the Ho
 
 [As for Hornet, why another mesh network technology? If Thread works, then we are glad someone else is taking responsibility. However, we are concerned about the stability and not being truly open about the whole Thread/Matter thing.](https://librehome.com/doc/hornet_doc/index.html#why-another-mesh-protocol)
 
+## Architecture of MCU side system
+
+![Libertas Studio](images/hornet_mcu_layers.png)
+
 Libertas is many years ahead. We laid the foundation of both interconnectivity and interactivity. It is more about the IoT intelligence layer than simple connectivity. Plus, when they say "connectivity," it does not necessarily mean **inter**connectivity!
+
+## More on Thing-App
 
 The innovation of Libertas is Thing-App, the application for IoT. We can mathematically prove that Libertas' design brings optimal experience to end-users and application developers.
 
@@ -139,8 +147,6 @@ For developers, the design can not be more straightforward. First, the developer
 The Libertas IDE (web-based builtin with the Hub) will analyze type declarations in source code and automatically generate the UI on a smartphone for a user to create the tree data based on the type declarations.
 
 ![Tree UI](images/tree_ui.png)
-
-![Libertas Studio](images/libertas_studio.png)
 
 ### Additional technical documentations
 
