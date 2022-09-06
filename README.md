@@ -60,6 +60,20 @@ The correct device shall be an "Open DFU bootloader."
 
 As the last step, click the "write" button on the left, and wait for the writing progress to finish.
 
+Please note that, as long as you see something like below, the write is successful!
+
+```
+HH:MM:SS.sss Uploading image through SDFU: 100%
+HH:MM:SS.sss All dfu images have been written to the target device
+```
+
+An error message as shown below may follow immediately due to dongle reboot. Just ignore it!
+
+```
+HH:MM:SS.sss Target device closed
+HH:MM:SS.sss Failed to write: Error: Timeout while waiting for device XXXXXXXXXXXX to be attached and enumerated
+```
+
 Unplug the dongle and plug it into a USB port of the Raspberry Pi. It is OK to use a USB 1.1 or 2.0 port.
 
 There is a button on the dongle. Please ensure you can still access the button while the dongle is plugged into the Raspberry Pi. During Hub admin processes, you may be asked to press the button to prove that you have physical access to the Hub.
