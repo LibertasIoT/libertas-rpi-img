@@ -1,5 +1,7 @@
 # Libertas Hub Raspberry Pi Images
 
+## With Hornet Mesh Network
+
 This repository contains the Libertas Hub release for Raspberry Pi 2, Raspberry Pi 3, and Raspberry Pi 4.
 
 ## What is Libertas Hub?
