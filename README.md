@@ -62,29 +62,17 @@ The correct device shall be an "Open DFU bootloader."
 
 As the last step, click the "write" button on the left, and wait for the writing progress to finish.
 
-Please note that, as long as you see something like below, the write is successful!
-
-```
-HH:MM:SS.sss Uploading image through SDFU: 100%
-HH:MM:SS.sss All dfu images have been written to the target device
-```
-
-An error message as shown below may follow immediately due to dongle reboot. Just ignore it!
-
-```
-HH:MM:SS.sss Target device closed
-HH:MM:SS.sss Failed to write: Error: Timeout while waiting for device XXXXXXXXXXXX to be attached and enumerated
-```
+A windows will popup to notify that the write is successful.
 
 Unplug the dongle and plug it into a USB port of the Raspberry Pi. It is OK to use a USB 1.1 or 2.0 port.
-
-There is a button on the dongle. Please ensure you can still access the button while the dongle is plugged into the Raspberry Pi. During Hub admin processes, you may be asked to press the button to prove that you have physical access to the Hub.
 
 <img src="images/nrfProgrammer.png" width="480" />
 
 ## Prepare the microSD card
 
 It is recommended to use Rufus to write to a microSD card. You can download Rufus from [https://rufus.ie/](https://rufus.ie/).
+
+We have taken the public download off line. Contact [founder, Mr. Qingjun,](https://www.linkedin.com/in/qingjunwei/) for the latest image of the Libertas Hub.
 
 Choose the microSD card and the Raspberry Pi image. Leave all other parameters with their default values and click START to initiate the writing process. The image file shall be something like the below,
 
@@ -116,6 +104,8 @@ Follow the linkes below to download Android App.
 
 ## Setup the Hub
 
+There is a button on the dongle. Please ensure you can still access the button while the dongle is plugged into the Raspberry Pi. During Hub admin processes, you may be asked to press the button to prove that you have physical access to the Hub.
+
 Follow this instruction to set up the Hub using Libertas Android App.
 
 [https://librehome.com/doc/smartphone_app/managing_hubs/add_a_new_hub/](https://librehome.com/doc/smartphone_app/managing_hubs/add_a_new_hub/)
@@ -128,82 +118,3 @@ Note that Raspberry Pi Hub will not be able to use our bridge service. Instead, 
 
 ![Libertas Studio](images/libertas_studio.png)
 
-## What Can I do With the Libertas Hub?
-
-The Libertas Hub currently supports Hornet Mesh wireless technology. In addition, it works with [9 Libertas smart home devices](https://librehome.com) now.
-
-What about Google's Thread and Matter technology? Well, since Matter is IP based. The Hub can support it right now. Nevertheless, for now, in Libertas, Matter is just a Thing-App!
-
-Libertas has a bigger plan. We want every device to have a Thing-App virtual machine and to interact with other devices independently, securely, and privately. 
-
-Moreover, we are working to open source complete code for different MCUs, the Hornet Cluster Library.
-
-* Hornet Cluster Library will have a built-in Thing-App engine (a Lua VM).
-* Hornet Cluster Library will hide the underlying details about the wireless stack (Thread/Matter, Hornet, or other protocols)
-* Hornet Cluster Library will significantly simplify the development of device/sensor firmware. It will usually take a few dozen lines of code for a device.
-
-[As for Hornet, why another mesh network technology? If Thread works, then we are glad someone else is taking responsibility. However, we are concerned about the stability and not being truly open about the whole Thread/Matter thing.](https://librehome.com/doc/hornet_doc/index.html#why-another-mesh-protocol)
-
-## Architecture of MCU side system
-
-![Libertas Studio](images/hornet_mcu_layers.png)
-
-Libertas is many years ahead. We laid the foundation of both interconnectivity and interactivity. It is more about the IoT intelligence layer than simple connectivity. Plus, when they say "connectivity," it does not necessarily mean **inter**connectivity!
-
-## More on Thing-App
-
-The innovation of Libertas is Thing-App, the application for IoT. We can mathematically prove that Libertas' design brings optimal experience to end-users and application developers.
-
-For end-users, the design is simple three steps. 1. Choose a Thing-App from our Thing-App store; 2. Throw things into the Thing-App, possibly with some extra parameters; 3. Start the Thing-App.
-
-![Thing-App](images/appengine.png)
-
-For developers, the design can not be more straightforward. First, the developer decides what type of things and extra parameters are needed for their Thing-App. The developer must then design a tree structure for those things and parameters. Next, the developer declares the tree structure as a few classes in the source code. At last, the developer writes a function as a process with necessary arguments.
-
-The Libertas IDE (web-based builtin with the Hub) will analyze type declarations in source code and automatically generate the UI on a smartphone for a user to create the tree data based on the type declarations.
-
-![Tree UI](images/tree_ui.png)
-
-### Additional technical documentations
-
-Follow the link below to read the technical overview slides.
-
-[https://docs.google.com/presentation/d/1oxe2K6-h2BWhlbm56ZZ4ZNBXoStRQs_iNyDqhWXge3w](https://docs.google.com/presentation/d/1oxe2K6-h2BWhlbm56ZZ4ZNBXoStRQs_iNyDqhWXge3w).
-
-Follow the link below to read the developer guides.
-
-[https://librehome.com/doc/developers_doc](https://librehome.com/doc/developers_doc)
-
-Follow the link below for the latest up-to-date API documentation.
-
-[librehome.com/api/modules/libertas.html](librehome.com/api/modules/libertas.html)
-
-Libertas is a general-purpose IoT platform with two operating systems, not just for smart homes!
-
-### Tutorials
-
-While we will open-source the complete code for MCUs later,  there is plenty you can do with Libertas Hub. For example, you can start experimenting with App development, go through the tutorial code, and code for existing Apps, such as "Demon A/V receiver driver."
-
-![tutorials](images/libertas_tutorials.png)
-
-### Denon/Marantz A/V receiver driver
-
-Another smart home example one can look at is the Denon/Marantz A/V receiver driver App. The end-user throws a receiver into the App during configuration (automatically discovered in the local network if it exists), and several "virtual devices" will be automatically created.
-
-End users can control their receivers using our standard UI with our smartphone App. A few clicks can bind the controls to real buttons such as Libertas remote control. Furthermore, those virtual devices can be controlled with other Apps just like real devices.
-
-It works much better than the official App on smartphones! [Here is the source code](https://github.com/librehome/librehome/blob/main/SmartonLabs/LibertasDenonAVR.ts) if you do not want to try Hub for now.
-
-![Virtual Device](images/virtual_device.png)
-
-## Commercialization
-
-Current versions of Libertas Hub are free for individuals. However, we plan a license charge starting from a future release.
-
-Whatever the plan is, it is going to be simple. Libertas end-users shall enjoy total control, zero information leaks, and be free from stealing, robbing, and Ponzi Schemes.
-
-![](images/cp1.png) ![](images/cp4.png) 
-
-<img src="images/cp3.gif" width="150" /> <img src="images/cp7.gif" height="150" /> ![](images/cp2.png) ![](images/cp8.png)
-
-![](images/cp5.png) ![](images/cp6.png) 
