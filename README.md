@@ -16,11 +16,11 @@ You will need:
 1. A Raspberry Pi 2, 3, 4 or 5 board.
 2. A microSD card as main storage. A size of 16GB or greater is recommended; 8GB is the minimum.
 3. A [nRF52840 Dongle](https://www.nordicsemi.com/Products/Development-hardware/nrf52840-dongle). It costs about USD 10.
-4. A USB thumb drive as backup storage. **The Hub must have dual storage backup**. Additionally, the thumb drive serves as IoT data storage.
+4. A USB thumb drive as backup storage. **The Hub must have dual storage backup**. Additionally, the thumb drive serves as a storage device for IoT data.
 
 <img src="images/rpi_comp.png" width="480" />
 
-## Download the szt file and extract
+## Download the ZST file and extract
 
 Get the zst file for your Raspberry Pi model from the [latest release (https://github.com/LibertasIoT/libertas-rpi-img/releases)](https://github.com/LibertasIoT/libertas-rpi-img/releases) and extract the zst file (Zstd compression).
 
@@ -92,9 +92,9 @@ Format a single partition with exFat.
 
 ## Power up the Pi
 
-**Note: The first time, you may need to allow Pi over 2 minutes to initialize, especially if you need to create and initialize the data partition on the SD card and reformat the USB drive. ****
+**Ensure the nRF52840 Dongle and USB drive are plugged in before powering up your Pi.**
 
-Ensure the nRF52840 Dongle and USB drive are plugged in before powering up your Pi.
+**Also, ensure the Hub's ethernet port is plugged into the local network.**
 
 ## Smartphone App
 
@@ -108,8 +108,6 @@ Follow the links below to download the Android App.
 
 ## Setup the Hub
 
-**Please ensure the Hub's ethernet port is plugged into the local network.**
-
 Follow these instructions to set up the Hub using the Libertas Android App.
 
 [https://docs.smartonlabs.com/smartphone_app/managing_hubs/add_a_new_hub/](https://docs.smartonlabs.com/smartphone_app/managing_hubs/add_a_new_hub/)
@@ -120,7 +118,7 @@ Please note that the Raspberry Pi Hub will not be able to utilize our bridge ser
 
 ### Current builds
 
-Raspberry 2,3,4,5 images built with latest Yocto LTS Scarthgap.
+Raspberry 2, 3, 4, and 5 images built with the latest Yocto LTS Scarthgap.
 
 - A/B SD card partition upgrade capability
 - USB drive backup
