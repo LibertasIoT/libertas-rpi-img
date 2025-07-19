@@ -1,22 +1,24 @@
-# Libertas Hub Raspberry Pi Images<br/>
+# Libertas Hub Raspberry Pi Images, Technical Preview
+
 Powered by [Libertas OS](https://docs.smartonlabs.com/developers_doc/libertas_os/)
 
 ## This product is *not certified with any standard body, including but not limited to Matter and Thread*. The product shall not be used for any production purpose. It shall only be used to evaluate the Smartonlabs technology.
 
 ## What is Libertas Hub?
 
-Read the following documents:
-
-- [Libertas Thing-App](https://docs.smartonlabs.com/developers_doc/libertas_thing_app/)
-- [Libertas Hub](https://docs.smartonlabs.com/developers_doc/libertas_hub/)
+Read [Smartonlabs Libertas IoT product tour](https://smartonlabs.com).
 
 ## Prepare the hardware.
 
 You will need:
 1. A Raspberry Pi 2, 3, 4 or 5 board.
-2. A microSD card as main storage. A size of 16GB or greater is recommended; 8GB is the minimum.
+2. A microSD card as main storage. A size of 32 GB or greater is recommended; 16 GB is the minimum.
 3. A [nRF52840 Dongle](https://www.nordicsemi.com/Products/Development-hardware/nrf52840-dongle). It costs about USD 10.
-4. A USB thumb drive as backup storage. **The Hub must have dual storage backup**. Additionally, the thumb drive serves as a storage device for IoT data.
+4. A USB drive (thumb or SSD) as backup storage. **The Hub must have dual storage backup**. Additionally, the USB drive serves as a storage device for IoT data.
+
+USB drive shall be plugged in a faster USB port (blue, not black port). RF dongle shall be away from the ethernet port.
+
+A high speed USB drive (or NVMe USB 3 adapter for RPi 4&5) is recommended. I've experienced a [really bad Amazon basic drive](https://www.amazon.com/dp/B0B61DGG18) with only 10MB write speed.
 
 <img src="images/rpi_comp.png" width="480" />
 
@@ -62,15 +64,25 @@ As the final step, click the "Write" button on the left and wait for the writing
 
 Make sure the write operation is successful.
 
-Unplug the dongle and plug it into a USB port of the Raspberry Pi. It is OK to use a USB 1.1 or 2.0 port.
+Unplug the dongle and plug it into a USB port of the Raspberry Pi.
 
 <img src="images/nrfProgrammer.png" width="480" />
 
 ## Prepare the microSD card
 
+The image file is compressed with zstd. The extracted file name is something like the below:
+
+**```libertas-raspberrypi?_2025??????????_fullsd.wic```**
+
+### Linux users
+
+Linux users can [use the **dd** command to write to an SD card](https://askubuntu.com/questions/227924/sd-card-cloning-using-the-dd-command).
+
+### Windows users
+
 It is recommended to use Rufus to write to a microSD card. You can download Rufus from [https://rufus.ie/](https://rufus.ie/).
 
-Choose the microSD card and the Raspberry Pi image. Leave all other parameters with their default values and click START to initiate the writing process. The image file shall be something like the below,
+Choose the microSD card and the Raspberry Pi image. Leave all other parameters with their default values and click START to initiate the writing process.
 
 **```libertas-raspberrypi??_2025??????????_fullsd.wic```**
 
@@ -86,9 +98,9 @@ Once Rufus is done writing the micro SD card. Remove the card from the PC and pl
 
 ## Prepare a USB drive
 
-Format a single partition with exFat.
+Format a single partition with **exFat**.
 
-**Note: The USB drive will be reformated into ext4 by Hub. All content on the drive will be lost!!!**
+*Note: The USB drive will be automatically **reformated** into ext4 by Hub during the first startup. All content on the drive will be lost!!!*
 
 ## Power up the Pi
 
@@ -112,7 +124,11 @@ Follow these instructions to set up the Hub using the Libertas Android App.
 
 [https://docs.smartonlabs.com/smartphone_app/managing_hubs/add_a_new_hub/](https://docs.smartonlabs.com/smartphone_app/managing_hubs/add_a_new_hub/)
 
-Powering up the Hub for the first time takes longer than usual because of the extra initialization steps, such as expanding and formatting the data partition on the SD card. Keep the "Discovery" screen open, and the Hub will appear as soon as it's ready.
+Powering up the Hub for the first time takes longer than usual because of the extra initialization steps, such as expanding and formatting the data partition on the SD card.
+
+The service also takes minutes to get ready due to the dependencies [explained below](#startup-reboot-wait-time).
+
+Keep the "[Discovery](https://docs.smartonlabs.com/smartphone_app/managing_hubs/add_a_new_hub/#search-local-network-for-hubs)" screen open, and the Hub will appear as soon as it's ready.
 
 Please note that the Raspberry Pi Hub will not be able to utilize our bridge service. Instead, you will need to set up the dynamic DNS and NAT to [access the Hub](https://docs.smartonlabs.com/smartphone_app/managing_hubs/hub_connection_settings/#using-static-ip) from the Internet through our Libertas Smartphone App.
 
@@ -120,10 +136,18 @@ Please note that the Raspberry Pi Hub will not be able to utilize our bridge ser
 
 Raspberry 2, 3, 4, and 5 images built with the latest Yocto LTS Scarthgap.
 
-- A/B SD card partition upgrade capability
+- A/B partition upgrade
 - USB drive backup
 - Latest Linux 6.6 kernel
 - Built-in OpenThread Border Router (OTBR)
+- ARM32 (Raspberry Pi 2, 3, and 4) and ARM64 (Raspberry Pi 5) builds
+
+Raspberry Pi 5 NVMe boot
+
+The Raspberry Pi 5 image is GPT based instead of MBR. The same image works with both SD card and NVMe. Note the following:
+
+- Use Raspberry Pi OS to update the latest firmware is recommended (even if you use SD card)
+- Libertas Hub will automatically change the PARTUUID of the rootfs after the first boot
 
 ## Access Libertas IoT Studio IDE
 
@@ -131,3 +155,97 @@ Raspberry 2, 3, 4, and 5 images built with the latest Yocto LTS Scarthgap.
 
 ![Libertas Studio](images/libertas_studio.png)
 
+## Startup/Reboot wait time
+
+The Libertas service takes about 3-5 minutes to go back online because it depends on too many services such as chronyd (see below). So please be patient.
+
+We may change the depedency to speed up the recovery later.
+
+```
+default.target
+● ├─avahi-daemon.service
+● ├─avahi-dnsconfd.service
+● ├─chronyd.service
+● ├─dbus.service
+● ├─dhcpcd.service
+● ├─dnsmasq.service
+● ├─ip6tables.service
+● ├─iptables.service
+● ├─libertas.service
+● ├─named.service
+● ├─NetworkManager.service
+● ├─otbr-agent.service
+● ├─rsyslog.service
+● ├─systemd-ask-password-wall.path
+● ├─systemd-logind.service
+● ├─systemd-networkd.service
+○ ├─systemd-update-utmp-runlevel.service
+× ├─tayga.service
+● ├─basic.target
+● │ ├─-.mount
+● │ ├─tmp.mount
+● │ ├─paths.target
+● │ ├─slices.target
+● │ │ ├─-.slice
+● │ │ └─system.slice
+● │ ├─sockets.target
+● │ │ ├─avahi-daemon.socket
+● │ │ ├─dbus.socket
+● │ │ ├─sshd.socket
+● │ │ ├─systemd-initctl.socket
+● │ │ ├─systemd-journald-audit.socket
+● │ │ ├─systemd-journald-dev-log.socket
+● │ │ ├─systemd-journald.socket
+● │ │ ├─systemd-networkd.socket
+● │ │ ├─systemd-udevd-control.socket
+● │ │ ├─systemd-udevd-kernel.socket
+● │ │ └─systemd-userdbd.socket
+● │ ├─sysinit.target
+○ │ │ ├─dev-hugepages.mount
+● │ │ ├─dev-mqueue.mount
+● │ │ ├─kmod-static-nodes.service
+● │ │ ├─ldconfig.service
+○ │ │ ├─run-postinsts.service
+● │ │ ├─sys-fs-fuse-connections.mount
+● │ │ ├─sys-kernel-config.mount
+● │ │ ├─sys-kernel-debug.mount
+● │ │ ├─sys-kernel-tracing.mount
+● │ │ ├─systemd-ask-password-console.path
+○ │ │ ├─systemd-hwdb-update.service
+● │ │ ├─systemd-journal-catalog-update.service
+● │ │ ├─systemd-journal-flush.service
+● │ │ ├─systemd-journald.service
+● │ │ ├─systemd-machine-id-commit.service
+○ │ │ ├─systemd-modules-load.service
+● │ │ ├─systemd-network-generator.service
+● │ │ ├─systemd-random-seed.service
+● │ │ ├─systemd-resolved.service
+● │ │ ├─systemd-sysctl.service
+● │ │ ├─systemd-sysusers.service
+○ │ │ ├─systemd-timesyncd.service
+● │ │ ├─systemd-tmpfiles-setup-dev-early.service
+● │ │ ├─systemd-tmpfiles-setup-dev.service
+● │ │ ├─systemd-tmpfiles-setup.service
+● │ │ ├─systemd-udev-trigger.service
+● │ │ ├─systemd-udevd.service
+● │ │ ├─systemd-update-done.service
+● │ │ ├─systemd-update-utmp.service
+● │ │ ├─local-fs.target
+● │ │ │ ├─-.mount
+● │ │ │ ├─boot.mount
+● │ │ │ ├─opt.mount
+● │ │ │ ├─systemd-fsck-root.service
+● │ │ │ ├─systemd-remount-fs.service
+● │ │ │ ├─tmp.mount
+○ │ │ │ ├─var-volatile-cache.service
+○ │ │ │ ├─var-volatile-lib.service
+○ │ │ │ ├─var-volatile-spool.service
+○ │ │ │ ├─var-volatile-srv.service
+● │ │ │ └─var-volatile.mount
+● │ │ └─swap.target
+● │ └─timers.target
+● │   ├─logrotate.timer
+● │   └─systemd-tmpfiles-clean.timer
+● └─remote-fs.target
+
+```
