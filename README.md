@@ -112,11 +112,9 @@ Format a single partition with **exFat**.
 
 The iOS App is always 10% behind, and it has not been released yet.
 
-Follow the links below to download the Android App.
+Follow the links below to download the Android App. Or download android APK from the [release page](https://github.com/LibertasIoT/libertas-rpi-img/releases).
 
 <a href="https://play.google.com/store/apps/details?id=com.smartonlabs.qwha"><img src="images/badge_new.png" width="135" /></a>
-
-<a href="https://librehome.com/app-release.apk"><img src="images/apk_badge.png" width="135" /></a>
 
 ## Setup the Hub
 
