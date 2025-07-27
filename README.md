@@ -1,6 +1,6 @@
 # Libertas Hub Raspberry Pi Images, Technical Preview
 
-Powered by [Libertas OS](https://docs.smartonlabs.com/developers_doc/libertas_os/)
+Powered by [Thing-App](https://docs.smartonlabs.com/developers_doc/libertas_thing_app/) on [Libertas OS](https://docs.smartonlabs.com/developers_doc/libertas_os/)
 
 ## This product is *not certified with any standard body, including but not limited to Matter and Thread*. The product shall not be used for any production purpose. It shall only be used to evaluate the Smartonlabs technology.
 
