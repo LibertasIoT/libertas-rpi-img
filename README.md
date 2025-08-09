@@ -13,7 +13,7 @@ Read [Smartonlabs Libertas IoT product tour](https://smartonlabs.com).
 You will need:
 1. A Raspberry Pi 2, 3, 4 or 5 board.
 2. A microSD card as main storage. A size of 32 GB or greater is recommended; 16 GB is the minimum.
-3. A [nRF52840 Dongle](https://www.nordicsemi.com/Products/Development-hardware/nrf52840-dongle). It costs about USD 10.
+3. A USB Radio Co-processor (RCP). It can be [ESP32-H2](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32h2/esp32-h2-devkitm-1/user_guide.html), or [ESP32-C5](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c5/esp32-c5-devkitc-1/user_guide.html#hardware-reference), or [ESP32-C6](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c6/esp32-c6-devkitc-1/user_guide.html#hardware-reference), or [nRF52840 Dongle](https://www.nordicsemi.com/Products/Development-hardware/nrf52840-dongle). It costs about USD 10.
 4. A USB drive (thumb or SSD) as backup storage. **The Hub must have dual storage backup**. Additionally, the USB drive serves as a storage device for IoT data.
 
 USB drive shall be plugged in a faster USB port (blue, not black port). RF dongle shall be away from the ethernet port.
@@ -26,13 +26,21 @@ A high speed USB drive (or NVMe USB 3 adapter for RPi 4&5) is recommended. I've 
 
 Get the zst file for your Raspberry Pi model from the [latest release (https://github.com/LibertasIoT/libertas-rpi-img/releases)](https://github.com/LibertasIoT/libertas-rpi-img/releases) and extract the zst file (Zstd compression).
 
-## Prepare the nRF52840 dongle
+## Prepare USB Radio Co-processor (RCP)
 
-The nRF52840 Dongle is required as a radio transceiver. Use the nRF tool below to program Hornet transceiver firmware into the dongle.
+### ESP32 development kits
 
-Note that other dongle hardware also works, e.g., [ESP32-S2](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s2/api-guides/openthread.html). Check the vendor documentation for information on building and flashing.
+You need to compile and flash the firmware. Read [this link](https://github.com/espressif/esp-idf/blob/master/examples/openthread/ot_rcp/README.md) for more details.
 
-### Download nRF Connect Desktop
+<img src="images/esp32-h2-dev-kit.webp" width="320" />
+
+### nRF52840 dongle
+
+The compiled firmware image can be downloaded from [release section](https://github.com/LibertasIoT/libertas-rpi-img/releases). Use the nRF tool below to program the firmware into the dongle.
+
+You can also compile your own firmware by following [this link](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/protocols/thread/tools.html#configuring-a-radio-co-processor).
+
+#### Download nRF Connect Desktop
 
 Follow this link ([https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-desktop](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-desktop)). 
 
@@ -41,8 +49,6 @@ The download link is on the left side of the webpage.
 Install the software. Then, launch the software. Note that we only need the "programmer App," as shown in the screenshot below.
 
 <img src="images/nrfConnect.png" width="480" />
-
-### Program RCP firmware
 
 #### Use the NRF programmer
 
