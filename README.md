@@ -142,7 +142,7 @@ Raspberry 2, 3, 4, and 5 images built with the latest Yocto LTS Scarthgap.
 
 - A/B partition upgrade
 - USB drive backup
-- Latest Linux 6.6 kernel
+- Latest Linux 6.12 kernel
 - Built-in OpenThread Border Router (OTBR)
 - ARM32 (Raspberry Pi 2, 3, and 4) and ARM64 (Raspberry Pi 5) builds
 
