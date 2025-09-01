@@ -13,7 +13,7 @@ Read [Smartonlabs Libertas IoT product tour](https://smartonlabs.com).
 You will need:
 1. A Raspberry Pi 2, 3, 4 or 5 board.
 2. A microSD card as main storage. A size of 32 GB or greater is recommended; 16 GB is the minimum.
-3. A USB Radio Co-processor (RCP). It can be [ESP32-C6](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c6/esp32-c6-devkitc-1/user_guide.html#hardware-reference), or [ESP32-H2](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32h2/esp32-h2-devkitm-1/user_guide.html), or [ESP32-C5](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c5/esp32-c5-devkitc-1/user_guide.html#hardware-reference), or [nRF52840 Dongle](https://www.nordicsemi.com/Products/Development-hardware/nrf52840-dongle). It costs about USD 10.
+3. A USB Radio Co-processor (RCP). It can be [ESP32-C6](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c6/esp32-c6-devkitc-1/user_guide.html#hardware-reference), or [ESP32-H2](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32h2/esp32-h2-devkitm-1/user_guide.html), or [ESP32-C5](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c5/esp32-c5-devkitc-1/user_guide.html#hardware-reference), or [nRF52840 Dongle](https://www.nordicsemi.com/Products/Development-hardware/nrf52840-dongle), or [XIAO MG24](https://www.seeedstudio.com/Seeed-Studio-XIAO-MG24-p-6247.html). It costs about USD 10.
 4. A USB drive (thumb or SSD) as backup storage. **The Hub must have dual storage backup**. Additionally, the USB drive serves as a storage device for IoT data.
 
 USB drive shall be plugged in a faster USB port (blue, not black port). RF dongle shall be away from the ethernet port.
@@ -33,6 +33,12 @@ Get the zst file for your Raspberry Pi model from the [latest release (https://g
 You need to compile and flash the firmware. Read [this link](https://github.com/espressif/esp-idf/blob/master/examples/openthread/ot_rcp/README.md) for more details.
 
 <img src="images/esp32-h2-dev-kit.webp" width="320" />
+
+### XIAO MG24
+
+Follow the link [https://github.com/SiliconLabs/arduino](https://github.com/SiliconLabs/arduino) for MCP firmware.
+
+<img src="images/XIAO_MG24.webp" width="240" />
 
 ### nRF52840 dongle
 
