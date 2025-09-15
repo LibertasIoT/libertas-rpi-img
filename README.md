@@ -4,6 +4,8 @@ Powered by [Thing-App](https://docs.smartonlabs.com/developers_doc/libertas_thin
 
 ## This product is *not certified with any standard body, including but not limited to Matter and Thread*. The product shall not be used for any production purpose. It shall only be used to evaluate the Smartonlabs technology.
 
+## **NOTE: Please use the Android client [APK from the Release](https://github.com/LibertasIoT/libertas-rpi-img/releases) for now, until the latest version (2.4.0) is approved in Goolge play store around 09/18/2025.**
+
 ## What is Libertas Hub?
 
 Read [Smartonlabs Libertas IoT product tour](https://smartonlabs.com).
@@ -167,97 +169,6 @@ The Raspberry Pi 5 image is GPT based instead of MBR. The same image works with 
 
 ## Startup/Reboot wait time
 
-The Libertas service takes about 3-5 minutes to go back online because it depends on too many services such as chronyd (see below). So please be patient.
+The Libertas service takes about 1-2 minutes to go back online because it depends on too many services such as chronyd (see below). So please be patient.
 
-We may change the depedency to speed up the recovery later.
-
-```
-default.target
-● ├─avahi-daemon.service
-● ├─avahi-dnsconfd.service
-● ├─chronyd.service
-● ├─dbus.service
-● ├─dhcpcd.service
-● ├─dnsmasq.service
-● ├─ip6tables.service
-● ├─iptables.service
-● ├─libertas.service
-● ├─named.service
-● ├─NetworkManager.service
-● ├─otbr-agent.service
-● ├─rsyslog.service
-● ├─systemd-ask-password-wall.path
-● ├─systemd-logind.service
-● ├─systemd-networkd.service
-○ ├─systemd-update-utmp-runlevel.service
-× ├─tayga.service
-● ├─basic.target
-● │ ├─-.mount
-● │ ├─tmp.mount
-● │ ├─paths.target
-● │ ├─slices.target
-● │ │ ├─-.slice
-● │ │ └─system.slice
-● │ ├─sockets.target
-● │ │ ├─avahi-daemon.socket
-● │ │ ├─dbus.socket
-● │ │ ├─sshd.socket
-● │ │ ├─systemd-initctl.socket
-● │ │ ├─systemd-journald-audit.socket
-● │ │ ├─systemd-journald-dev-log.socket
-● │ │ ├─systemd-journald.socket
-● │ │ ├─systemd-networkd.socket
-● │ │ ├─systemd-udevd-control.socket
-● │ │ ├─systemd-udevd-kernel.socket
-● │ │ └─systemd-userdbd.socket
-● │ ├─sysinit.target
-○ │ │ ├─dev-hugepages.mount
-● │ │ ├─dev-mqueue.mount
-● │ │ ├─kmod-static-nodes.service
-● │ │ ├─ldconfig.service
-○ │ │ ├─run-postinsts.service
-● │ │ ├─sys-fs-fuse-connections.mount
-● │ │ ├─sys-kernel-config.mount
-● │ │ ├─sys-kernel-debug.mount
-● │ │ ├─sys-kernel-tracing.mount
-● │ │ ├─systemd-ask-password-console.path
-○ │ │ ├─systemd-hwdb-update.service
-● │ │ ├─systemd-journal-catalog-update.service
-● │ │ ├─systemd-journal-flush.service
-● │ │ ├─systemd-journald.service
-● │ │ ├─systemd-machine-id-commit.service
-○ │ │ ├─systemd-modules-load.service
-● │ │ ├─systemd-network-generator.service
-● │ │ ├─systemd-random-seed.service
-● │ │ ├─systemd-resolved.service
-● │ │ ├─systemd-sysctl.service
-● │ │ ├─systemd-sysusers.service
-○ │ │ ├─systemd-timesyncd.service
-● │ │ ├─systemd-tmpfiles-setup-dev-early.service
-● │ │ ├─systemd-tmpfiles-setup-dev.service
-● │ │ ├─systemd-tmpfiles-setup.service
-● │ │ ├─systemd-udev-trigger.service
-● │ │ ├─systemd-udevd.service
-● │ │ ├─systemd-update-done.service
-● │ │ ├─systemd-update-utmp.service
-● │ │ ├─local-fs.target
-● │ │ │ ├─-.mount
-● │ │ │ ├─boot.mount
-● │ │ │ ├─opt.mount
-● │ │ │ ├─systemd-fsck-root.service
-● │ │ │ ├─systemd-remount-fs.service
-● │ │ │ ├─tmp.mount
-○ │ │ │ ├─var-volatile-cache.service
-○ │ │ │ ├─var-volatile-lib.service
-○ │ │ │ ├─var-volatile-spool.service
-○ │ │ │ ├─var-volatile-srv.service
-● │ │ │ └─var-volatile.mount
-● │ │ └─swap.target
-● │ └─timers.target
-● │   ├─logrotate.timer
-● │   └─systemd-tmpfiles-clean.timer
-● └─remote-fs.target
-
-```
-
-Last updated: 2025-09-01
+Last updated: 2025-09-13
