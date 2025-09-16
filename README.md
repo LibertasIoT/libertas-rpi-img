@@ -4,8 +4,6 @@ Powered by [Thing-App](https://docs.smartonlabs.com/developers_doc/libertas_thin
 
 ## This product is *not certified with any standard body, including but not limited to Matter and Thread*. The product shall not be used for any production purpose. It shall only be used to evaluate the Smartonlabs technology.
 
-## **NOTE: Please use the Android client [APK from the Release](https://github.com/LibertasIoT/libertas-rpi-img/releases) for now, until the latest version (2.4.0) is approved in Goolge play store around 09/18/2025.**
-
 ## What is Libertas Hub?
 
 Read [Smartonlabs Libertas IoT product tour](https://smartonlabs.com).
