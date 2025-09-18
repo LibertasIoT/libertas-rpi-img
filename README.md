@@ -165,8 +165,14 @@ The Raspberry Pi 5 image is GPT based instead of MBR. The same image works with 
 
 ![Libertas Studio](images/libertas_studio.png)
 
-## Startup/Reboot wait time
+## The power LED keepalive flash
 
-The Libertas service takes about 1-2 minutes to go back online because it depends on too many services such as chronyd (see below). So please be patient.
+Once Libertas is running, the Raspberry Pi power LED will blink the Morse code of "OK" (a sequence of on for 100ms or 300ms followed by 100ms off) and a short burst of five on and off at a 50ms interval.
+
+If you see the power LED blinking, the Libertas process is running.
+
+## Startup and reboot time
+
+For the first time, Libertas takes about 3-5 minutes to start. Reboot usually takes 1-2 minutes. So please be patient.
 
 Last updated: 2025-09-13
