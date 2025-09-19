@@ -120,6 +120,12 @@ Format a single partition with **exFat**.
 
 **Also, ensure the Hub's ethernet port is plugged into the local network.**
 
+### Blinking power LED 
+
+Once Libertas is running, the Raspberry Pi power LED will **blink the Morse code of "OK"** (a sequence of on for 100ms or 300ms followed by 100ms off) and a short burst of five on and off at a 50ms interval.
+
+**If you see the power LED blinking, the Libertas process is running.**
+
 ## Smartphone App
 
 The iOS App is always 10% behind, and it has not been released yet.
@@ -164,12 +170,6 @@ The Raspberry Pi 5 image is GPT based instead of MBR. The same image works with 
 [Every Libertas IoT Hub comes with Libertas-IoT Studio, a complete development IDE that is free for everybody.](https://docs.smartonlabs.com/developers_doc/development_tool/)
 
 ![Libertas Studio](images/libertas_studio.png)
-
-## The power LED keepalive flash
-
-Once Libertas is running, the Raspberry Pi power LED will blink the Morse code of "OK" (a sequence of on for 100ms or 300ms followed by 100ms off) and a short burst of five on and off at a 50ms interval.
-
-If you see the power LED blinking, the Libertas process is running.
 
 ## Startup and reboot time
 
